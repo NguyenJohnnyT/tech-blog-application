@@ -1,0 +1,43 @@
+:root {
+    --primary: #98eccc;
+    --header: #3c376b;
+    --subheader: #d0abe1;
+    --text: #5c5c5c;
+    --card: #fdaca7;
+}
+
+.header {
+    background-color: var(--header);
+}
+
+.nav {
+    background-color:var(--subheader);
+}
+
+.main {
+    background-color: var(--primary);
+}
+
+.blog-card {
+    background-color: var(--card);
+    border-radius: 5px;
+}
+
+a {
+    color: var(--text);
+    
+}
+
+a:hover {
+    color: var(--text);
+    text-shadow: 1px 1px;
+    text-decoration: none;
+}
+
+body {
+    background-color: var(--primary)
+}
+
+.signature {
+    flex-direction: row-reverse;
+}

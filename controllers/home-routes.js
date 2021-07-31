@@ -33,6 +33,7 @@ router.get('/blog/:id', async (req, res) => {
                     model: Comment,
                     attributes: [
                         'content',
+                        'date',
                     ],
                     include: {
                         model: User,
@@ -44,10 +45,10 @@ router.get('/blog/:id', async (req, res) => {
             ]
         })
 
-        const blog = dbBlogData.get({ plain: true});
-        console.log(blog);
-        // res.render('post', { blog })
-        res.json(blog);
+        const post = dbBlogData.get({ plain: true});
+        // console.log(post);
+        res.render('post', { post })
+        // res.json(post);
     } catch (err) {
         console.log(err);
         res.status(500).json(err);
