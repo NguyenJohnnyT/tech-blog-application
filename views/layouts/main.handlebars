@@ -12,16 +12,22 @@
         &#127881 Indomie Party! &#127881
       </h1>
     </header>
-      <div class="flex-row justify-space-around"> 
-          <a href="#"><h2>Home</h2></a>
-          <a href="#"><h2>Dashboard</h2></a>
-          <a href="#" class=""><h2>Login</h2></a>
-          <a href="#" class="display-none"><h2>Logout</h2></a>
-      </div>
+      <nav class="flex-row justify-space-around"> 
+          <a href="/"><h2>Home</h2></a>
+          <a href="/dashboard"><h2>Dashboard</h2></a>
+          {{#if loggedIn}}
+          <a href="#"><h2>Logout</h2></a>
+          {{else}}
+          <a href="/login" class=""><h2>Login</h2></a>
+          {{/if}}          
+      </nav>
       <main class="container container-fluid mt-5">
         {{{ body }}}
       </main>
   </div>
-  </body>
+    {{#if loggedIn}}
+  <script src="/js/logout.js"></script>
+    {{/if}}
+</body>
 
 </html>

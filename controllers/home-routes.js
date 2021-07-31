@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Blog } = require('../models/blog');
+const { Blog, User, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
 // GET all blogs for homepage
@@ -19,6 +19,41 @@ router.get('/', async (req, res) => {
 });
 
 // GET one blog
+router.get('/blog/:id', async (req, res) => {
+    try {
+        const dbBlogData = await Blog.findByPk(req.params.id, {
+            include: [
+                {
+                    model: User,
+                    attributes: [
+                        'username'
+                    ],
+                },
+                {
+                    model: Comment,
+                    attributes: [
+                        'content',
+                    ],
+                    include: {
+                        model: User,
+                        attributes: [
+                            'username'
+                        ]
+                    }
+                }
+            ]
+        })
+
+        const blog = dbBlogData.get({ plain: true});
+        console.log(blog);
+        // res.render('post', { blog })
+        res.json(blog);
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
+})
+
 
 //Return to homepage if already logged in and somehow user goes to /login
 router.get('/login', (req, res) => {

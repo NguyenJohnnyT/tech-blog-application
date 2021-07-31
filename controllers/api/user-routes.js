@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { User } = require('../../models/user');
 
-// localhost:3001/api/users/
+// localhost:3001/api/users/, frontend will fetch post to this
 //CREATE a new user
 router.post('/', async (req, res) => {
     try {

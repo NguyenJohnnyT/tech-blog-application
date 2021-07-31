@@ -6,9 +6,9 @@ const Comment = require("./comment");
 //Connections between tables
 
 // //Blog belongsto User
-// Blog.belongsTo(User, {
-//     foreignKey: 'user_id',
-// });
+Blog.belongsTo(User, {
+    foreignKey: 'user_id',
+});
 
 //Blog hasMany comments
 Blog.hasMany(Comment, {
@@ -28,9 +28,9 @@ User.hasMany(Comment, {
 });
 
 // //User belongsTo User
-// Comment.belongsTo(User, {
-//     foreignKey: 'user_id',
-// });
+Comment.belongsTo(User, {
+    foreignKey: 'user_id',
+});
 
 // //comment belongsTo Blog
 // Comment.belongsTo(Blog, {
