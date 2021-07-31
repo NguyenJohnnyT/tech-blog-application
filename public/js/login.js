@@ -1,10 +1,10 @@
 const loginFormHandler = async (event) => {
     event.preventDefault();
 
-    const username = document.querySelector('#user-login').nodeValue.trim();
-    const password = document.querySelector('#password-login').nodeValue.trim();
+    const username = document.querySelector('#user-login').value.trim();
+    const password = document.querySelector('#password-login').value.trim();
 
-    if (email && password) {
+    if (username && password) {
         const response = await fetch ('/api/users/login', {
             method: 'POST',
             body: JSON.stringify({ username, password}),
@@ -22,9 +22,9 @@ const loginFormHandler = async (event) => {
 const signupFormHandler = async (event) => {
     event.preventDefault();
 
-    const username = document.querySelector('#username-signup').nodeValue.trim();
-    const password = document.querySelector('#password-signup').nodeValue.trim();
-    const password2 = document.querySelector('#password-signup2').nodeValue.trim();
+    const username = document.querySelector('#username-signup').value.trim();
+    const password = document.querySelector('#password-signup').value.trim();
+    const password2 = document.querySelector('#password-signup2').value.trim();
 
     if (password !== password2) {
         alert('Passwords must match');

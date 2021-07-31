@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User } = require('../../models/user');
+const { User } = require('../../models/');
 
 // localhost:3001/api/users/, frontend will fetch post to this
 //CREATE a new user
