@@ -13,7 +13,7 @@ User.init(
         id: {
             type: DataTypes.INTEGER,
             allowNull: false,
-            primaryKey: false,
+            primaryKey: true,
             autoIncrement: true,
         },
         username: {
@@ -26,6 +26,13 @@ User.init(
             allowNull: false,
             validate: {
                 len: [8],
+            },
+        },
+        blog_id: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'blog',
+                key: 'id',
             },
         },
     },

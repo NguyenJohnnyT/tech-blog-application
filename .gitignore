@@ -2,3 +2,4 @@ node_modules
 hwassets
 .env
 .DS_Store
+userComment.js
