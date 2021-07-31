@@ -6,7 +6,7 @@ class User extends Model {
     checkPassword(loginPw) {
         return bcrypt.compareSync(loginPw, this.password);
     }
-}
+};
 
 User.init(
     {
@@ -27,14 +27,14 @@ User.init(
             validate: {
                 len: [8],
             },
-        },
-        blog_id: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: 'blog',
-                key: 'id',
-            },
-        },
+        }
+        // blog_id: {
+        //     type: DataTypes.INTEGER,
+        //     references: {
+        //         model: 'blog',
+        //         key: 'id',
+        //     },
+        // },
     },
     {
         hooks: {
@@ -55,4 +55,4 @@ User.init(
     }
 )
 
-module.export = User;
+module.exports = User;

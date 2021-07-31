@@ -1,14 +1,14 @@
 // import models
-const { Blog } = require("./blog");
-const { User } = require("./user");
-const { Comment } = require("./comment");
+const Blog = require("./blog");
+const User = require("./user");
+const Comment = require("./comment");
 // const { UserComment } = require("./userComment");
 //Connections between tables
 
-//Blog belongsto User
-Blog.belongsTo(User, {
-    foreignKey: 'user_id',
-});
+// //Blog belongsto User
+// Blog.belongsTo(User, {
+//     foreignKey: 'user_id',
+// });
 
 //Blog hasMany comments
 Blog.hasMany(Comment, {
@@ -24,22 +24,17 @@ User.hasMany(Blog, {
 
 //User has many comments
 User.hasMany(Comment, {
-   through: 'userComment'
+   foreignKey: "user_id"
 });
 
-//User belongsTo User
-Comment.belongsTo(User, {
-    through: 'user_id',
-});
+// //User belongsTo User
+// Comment.belongsTo(User, {
+//     foreignKey: 'user_id',
+// });
 
-//comment belongsTo Blog
-Comment.belongsTo(Blog, {
-    foreignKey: 'blog_id',
-})
+// //comment belongsTo Blog
+// Comment.belongsTo(Blog, {
+//     foreignKey: 'blog_id',
+// })
 
-module.exports = {
-    //Models go here
-    Blog,
-    User,
-    Comment
-}
+module.exports = { Blog, User, Comment }
