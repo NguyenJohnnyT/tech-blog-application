@@ -28,7 +28,11 @@
         <hr>
         <p>{{post.content}}</p>
         <br>
-        <p class = "flex-row align-end signature">Written by {{post.user.username}} on {{post.date}}</p>
-
+        <p class = "flex-row align-end signature">Written by {{post.user.username}} on {{format_date post.date}} at {{format_time post.date}}</p>
     </section>
+    {{#each post.comments as |comment|}}
+    {{> comment-details}}
+    {{/each}}
+    <a href="#" class="w3-button w3-large w3-circle w3-xlarge w3-ripple addCommentBtn">+</a>
+    <br />
 </div>
