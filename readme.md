@@ -1,5 +1,5 @@
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
-# E-Commerce back end application
+# Tech Blog Application
 
 Interact with a tech blog, create an account safely with a username and salted and hashed password, view and comment on posts, or make your own blog post that other users can interact with!
 
@@ -20,9 +20,15 @@ Interact with a tech blog, create an account safely with a username and salted a
 
 ## License
 
+This application is licensed under [MIT]((https://opensource.org/licenses/MIT)).
+
 ## Contributors
 
+Anyone can contribute to this project.
+
 ## Tests
+
+No tests available.
 
 ## Questions
 Have a question? Please email me at johnnytrucnguyen@gmail.com
