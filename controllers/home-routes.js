@@ -55,6 +55,30 @@ router.get('/blog/:id', async (req, res) => {
     }
 })
 
+router.get('/dashboard', async(req, res) => { //req.session.username
+    try {
+        if (!req.session.loggedIn) {
+            res.redirect('/login');
+            return
+        }
+        const dbUserData = await User.findAll({
+            where: {
+                username: req.session.username
+            },
+            include: {
+                model: Blog
+            }
+        });
+
+        // console.log('dbUserData', dbUserData[0])
+        // console.log('req.session', req.session);
+        // const post = dbUserData.get({ plain: true});
+        res.status(200).json(dbUserData);
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
+})
 
 //Return to homepage if already logged in and somehow user goes to /login
 router.get('/login', (req, res) => {
