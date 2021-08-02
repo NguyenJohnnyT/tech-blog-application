@@ -1,1 +1,11 @@
 {{!-- Displays a list of the user's blogposts --}}
+{{!-- 
+obj dbUserData
+properties : username, blogs
+blogs: an array of objects containing blogposts
+blogpost objects: id, title, date
+--}}
+<h3>Blog posts by you ({{username}})</h3>
+{{#each blogs as |blogs|}}
+{{>dash-details}}
+{{/each}}

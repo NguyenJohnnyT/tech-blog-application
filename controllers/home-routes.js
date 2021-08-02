@@ -5,8 +5,19 @@ const withAuth = require('../utils/auth');
 // GET all blogs for homepage
 router.get('/', async (req, res) => {
     try {
-        const blogData = await Blog.findAll({})
+        const blogData = await Blog.findAll({
+            include: [
+                {
+                    model: User,
+                    attributes: [
+                        'username',
+                    ]
+                }
+            ]
+        })
         const blogs = blogData.map((blog) => blog.get({ plain: true }));
+
+        console.log('blogs', blogs);
 
         res.render('home', {
             blogs,
@@ -44,9 +55,9 @@ router.get('/blog/:id', async (req, res) => {
                 }
             ]
         })
-
+        // console.log(dbBlogData);
         const post = dbBlogData.get({ plain: true});
-        // console.log(post);
+        console.log(post);
         res.render('post', { post })
         // res.json(post);
     } catch (err) {
@@ -63,17 +74,22 @@ router.get('/dashboard', async(req, res) => { //req.session.username
         }
         const dbUserData = await User.findAll({
             where: {
-                username: req.session.username
+                username: req.session.username,
             },
+            attributes: [
+                "username",
+            ],
             include: {
                 model: Blog
             }
         });
 
-        // console.log('dbUserData', dbUserData[0])
+        // console.log('dbUserData', dbUserData)
         // console.log('req.session', req.session);
-        // const post = dbUserData.get({ plain: true});
-        res.status(200).json(dbUserData);
+        const post = dbUserData[0].get({ plain: true});
+        // res.status(200).json(dbUserData);
+        console.log(post);
+        res.status(200).render('dash', post)
     } catch (err) {
         console.log(err);
         res.status(500).json(err);
