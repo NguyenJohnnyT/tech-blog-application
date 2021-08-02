@@ -55,6 +55,8 @@ router.get('/blog/:id', async (req, res) => {
                 }
             ]
         })
+
+        //TODO: Add a boolean property post.sameUser if the session.username === post.user.username
         // console.log(dbBlogData);
         const post = dbBlogData.get({ plain: true});
         console.log(post);
@@ -64,6 +66,19 @@ router.get('/blog/:id', async (req, res) => {
         // res.json(post);
     } catch (err) {
         console.log(err);
+        res.status(500).json(err);
+    }
+})
+
+router.delete('/blog/:id', async (req, res) => {
+    try {
+        const dbBlogData = await Blog.destroy({
+            where: {
+                id: req.params.id
+            },
+        });
+        res.status(200).json(dbBlogData);
+    } catch (err) {
         res.status(500).json(err);
     }
 })
