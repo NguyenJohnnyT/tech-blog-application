@@ -5,7 +5,7 @@ const deletePostHandler = (event) => {
         window.location.toString().split('/').length - 1
       ];
 
-    const response = await fetch (`/api/blog/${id}`, {
+    const response = await fetch (`/api/blog/edit/${id}`, {
         method: "DELETE",
     });
     
@@ -16,7 +16,7 @@ const deletePostHandler = (event) => {
         alert('Failed to delete blogpost');
     };
 };
-// 
+// TODO: Add the delete button on post
 document
   .querySelector('.delete-blogpost')
   .addEventListener('submit', deletePostHandler);
