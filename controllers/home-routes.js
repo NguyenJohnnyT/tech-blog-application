@@ -58,7 +58,9 @@ router.get('/blog/:id', async (req, res) => {
         // console.log(dbBlogData);
         const post = dbBlogData.get({ plain: true});
         console.log(post);
-        res.render('post', { post })
+        res.render('post', { 
+            post,
+            loggedIn: req.session.loggedIn })
         // res.json(post);
     } catch (err) {
         console.log(err);
@@ -86,10 +88,13 @@ router.get('/dashboard', async(req, res) => { //req.session.username
 
         // console.log('dbUserData', dbUserData)
         // console.log('req.session', req.session);
-        const post = dbUserData[0].get({ plain: true});
+        const post = [dbUserData[0].get({ plain: true})];
         // res.status(200).json(dbUserData);
         console.log(post);
-        res.status(200).render('dash', post)
+        res.status(200).render('dash', {
+            post,
+            loggedIn: req.session.loggedIn
+        })
     } catch (err) {
         console.log(err);
         res.status(500).json(err);
