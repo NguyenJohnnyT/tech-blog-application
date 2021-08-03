@@ -3,15 +3,11 @@ const { Blog, User, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 // TODO: Add withAuth
 
-router.get('/create', async (req, res) => {
-    try {
-        res.status(200).render('selfCreate');
-    }catch (err) {
-        res.status(500).json(err)
-    }
-})
 
-router.get('/:id', withAuth, async (req, res) => {
+
+router.get('/:id', 
+// withAuth,
+ async (req, res) => {
     try {
         const dbBlogData = await Blog.findByPk(req.params.id, {
             include: [
@@ -64,11 +60,21 @@ router.get('edit/:id', async (req, res) => {
     }
 });
 
-router.post('/edit/:id', async (req, res) => {
+router.put('/edit/:id', async (req, res) => {
     try {
-         //TODO: POST ROUTE TO selfEdit
+         //req.body returns a { title, content}
+        const dbBlogData = await Blog.update(req.body, {
+            where: {
+                id: req.params.id,    
+            },
+        });
 
-
+        if (!dbBlogData) {
+            res.status(404).json({ message:"No blogpost with this id!" });
+            return;
+        }
+        res.status(200).json({dbBlogData, message: "Blogpost edited!"});
+        res.status(200).redirect('../');
         //res.redirect('/../../')
     } catch (err) {
         res.status(500).json(err);
