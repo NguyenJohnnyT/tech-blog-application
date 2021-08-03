@@ -54,7 +54,7 @@ router.get('/edit/:id', async (req, res) => {
         //TODO: GET ROUTE TO selfEdit
         const dbBlogData = await Blog.findByPk(req.params.id)
         post = dbBlogData.get({ plain: true })
-        
+
         res.status(200).render('selfEdit', post)
     } catch (err) {
         res.status(500).json(err);
@@ -95,8 +95,8 @@ router.delete('/edit/:id', async (req, res) => {
             return
         };
 
-        // res.status(200).json({dbBlogData, message: "blogpost deleted!"});
-        res.redirect('../');
+        res.status(200).json({dbBlogData, message: "blogpost deleted!"});
+        // res.status(200).json({ message: 'deleted!' });
     } catch (err) {
         res.status(500).json(err);
     }

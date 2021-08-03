@@ -1,18 +1,19 @@
 const deletePostHandler = async (event) => {
     event.preventDefault();
-    console.log(event);
+    // console.log(event);
 
     const id = window.location.toString().split('/')[
         window.location.toString().split('/').length - 1
       ];
-
-    const response = await fetch (`/api/blog/edit/${id}`, {
+    
+    // console.log(id);
+    const response = await fetch (`/blog/edit/${id}`, {
         method: "DELETE",
     });
     
     if (response.ok) {
-        document.location.replace('/');
         alert('Blogpost deleted.');
+        document.location.replace('/')
     } else {
         alert('Failed to delete blogpost');
     };
@@ -20,4 +21,4 @@ const deletePostHandler = async (event) => {
 
 document
   .querySelector('#delPostBtn')
-  .addEventListener('submit', deletePostHandler);
+  .addEventListener('click', deletePostHandler);

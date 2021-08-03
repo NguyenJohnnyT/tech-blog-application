@@ -2,7 +2,7 @@
 
 const addPost = async (event) => {
     event.preventDefault();
-    
+
     const title = document.querySelector('#new-post-title').value.trim();
     const content = document.querySelector('#new-post-content').value.trim();
 
@@ -14,6 +14,7 @@ const addPost = async (event) => {
         });
 
         if (response.ok) {
+            alert('Blog posted!');
             document.location.replace('/');
         } else {
             alert ('Failed to create new blogpost');
