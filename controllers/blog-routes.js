@@ -44,14 +44,36 @@ router.get('/:id',
         console.log(err);
         res.status(500).json(err);
     }
-})
+});
 
+router.post('/comment/add/:id', async (req, res) => {
+    try {
+        const dbUser = await User.findOne({
+            where: {
+                username: req.session.id
+            },
+        });
 
+        const user = dbUser.get({ plain: true });
+
+        console.log(user);
+
+        await Comment.create({
+            content: req.body.content,
+            date: new Date(),
+            user_id: user.id,
+            blog_id: req.params.id
+        })
+
+        res.status(200).redirect('/');
+    } catch (err) {
+        console.log(err);
+    }
+});
 
 //! Show editing screen
 router.get('/edit/:id', async (req, res) => {
     try{
-        //TODO: GET ROUTE TO selfEdit
         const dbBlogData = await Blog.findByPk(req.params.id)
         post = dbBlogData.get({ plain: true })
 

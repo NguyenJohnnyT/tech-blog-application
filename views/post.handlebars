@@ -31,12 +31,16 @@
         <h3>{{post.title}}</h3>
         <hr>
         <p>{{post.content}}</p>
-        <br>
+        <br />
         <p class = "flex-row align-end signature">Written by {{post.user.username}} on {{format_date post.date}} at {{format_time post.date}}</p>
     </section>
     {{#each post.comments as |comment|}}
     {{> comment-details}}
     {{/each}}
-    <a href="/" class="w3-button w3-large w3-circle w3-xlarge w3-ripple addCommentBtn">+</a>
+    <button class="w3-button w3-large w3-circle w3-xlarge w3-ripple" id="addCommentBtn">Add a comment</button>
     <br />
 </div>
+<div class="row">
+   <textarea class="form-input" type="text" placeholder="Add a comment.." id="add-comment-content"></textarea>
+</div>
+<script src='/js/addComment.js'></script>

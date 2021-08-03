@@ -1,5 +1,3 @@
-//TODO: post fetch to /dashboard/add
-
 const addPost = async (event) => {
     event.preventDefault();
 

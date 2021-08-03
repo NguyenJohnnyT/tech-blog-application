@@ -25,7 +25,7 @@
     word-wrap: break-word
 }
 
-.addCommentBtn {
+#addCommentBtn {
     position:absolute;
     right: 10%;
     background-color: var(--lighttext);
@@ -43,6 +43,14 @@
 #delPostBtn {
     background-color: red;
     color:cornsilk
+}
+
+#add-comment-content {
+    width: 80%;
+    padding: 10px;
+    margin-bottom:30px;
+    background-color: cornsilk;
+    border-radius: 5px
 }
 
 .comment-card {
