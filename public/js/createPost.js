@@ -13,7 +13,7 @@ const addPost = async (event) => {
 
         if (response.ok) {
             alert('Blog posted!');
-            document.location.replace('/');
+            document.location.replace('/dashboard');
         } else {
             alert ('Failed to create new blogpost');
         }

@@ -23,7 +23,7 @@ const updatePostHandler = async (event) => {
     });
     
     if (response.ok) {
-        document.location.replace('/');
+        document.location.replace('/dashboard');
         alert('Blogpost edited.');
     } else {
         alert('Failed to delete blogpost');
