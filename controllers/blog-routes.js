@@ -38,7 +38,8 @@ router.get('/:id',
         // console.log(post);
         res.render('post', { 
             post,
-            loggedIn: req.session.loggedIn })
+            loggedIn: req.session.loggedIn,
+            sessionUser: req.session.username })
         // res.json(post);
     } catch (err) {
         console.log(err);
@@ -46,6 +47,7 @@ router.get('/:id',
     }
 });
 
+//! ADD COMMENT TO BLOGPOST
 router.post('/comment/add/:id', async (req, res) => {
     try {
         const dbUser = await User.findOne({
@@ -54,6 +56,7 @@ router.post('/comment/add/:id', async (req, res) => {
             },
         });
 
+        console.log(dbUser);
         const user = dbUser.get({ plain: true });
 
         console.log(user);
@@ -62,7 +65,7 @@ router.post('/comment/add/:id', async (req, res) => {
             content: req.body.content,
             date: new Date(),
             user_id: user.id,
-            blog_id: req.params.id
+            blog_id: req.body.blog_id
         })
 
         res.status(200).redirect('/');
@@ -77,7 +80,11 @@ router.get('/edit/:id', async (req, res) => {
         const dbBlogData = await Blog.findByPk(req.params.id)
         post = dbBlogData.get({ plain: true })
 
-        res.status(200).render('selfEdit', post)
+        res.status(200).render('selfEdit', {
+            post,
+            loggedIn: req.session.loggedIn,
+            sessionUser: req.session.username
+        })
     } catch (err) {
         res.status(500).json(err);
     }

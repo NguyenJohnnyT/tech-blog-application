@@ -24,10 +24,11 @@ router.get('/', async (req, res) => {
         const blogs = blogData.map((blog) => blog.get({ plain: true }));
 
         // console.log('blogs', blogs);
-
+        
         res.render('home', {
             blogs,
             loggedIn: req.session.loggedIn,
+            sessionUser: req.session.username
         });
     } catch (err) {
         console.log(err);
@@ -60,7 +61,8 @@ router.get('/dashboard', withAuth, async(req, res) => { //req.session.username
         console.log(post);
         res.status(200).render('dash', {
             post,
-            loggedIn: req.session.loggedIn
+            loggedIn: req.session.loggedIn,
+            sessionUser: req.session.username
         })
     } catch (err) {
         console.log(err);
@@ -71,7 +73,7 @@ router.get('/dashboard', withAuth, async(req, res) => { //req.session.username
 //TODO: Add dashboard/add POST route for new blogs
 router.get('/dashboard/add', withAuth, async (req, res) => {
     try {
-        res.status(200).render('selfCreate', {loggedIn: req.session.loggedIn});
+        res.status(200).render('selfCreate', {loggedIn: req.session.loggedIn, sessionUser: req.session.username});
     }catch (err) {
         res.status(500).json(err)
     }
