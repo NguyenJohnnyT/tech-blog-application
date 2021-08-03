@@ -32,8 +32,17 @@
     /* bottom: 15px; */
 }
 
-.addPostBtn{
+.addPostBtn {
     background-color: var(--lighttext);
+}
+
+.editPostBtn {
+    background-color: orange;
+}
+
+.delPostBtn {
+    background-color: red;
+    color:cornsilk
 }
 
 .comment-card {

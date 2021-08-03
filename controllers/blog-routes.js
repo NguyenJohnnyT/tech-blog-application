@@ -53,8 +53,9 @@ router.get('/edit/:id', async (req, res) => {
     try{
         //TODO: GET ROUTE TO selfEdit
         const dbBlogData = await Blog.findByPk(req.params.id)
-        // res.status(200).json(dbBlogData)
-        res.status(200).render('selfEdit', {dbBlogData})
+        post = dbBlogData.get({ plain: true })
+        
+        res.status(200).render('selfEdit', post)
     } catch (err) {
         res.status(500).json(err);
     }
