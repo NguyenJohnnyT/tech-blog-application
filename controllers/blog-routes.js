@@ -64,7 +64,13 @@ router.get('/edit/:id', async (req, res) => {
 router.put('/edit/:id', async (req, res) => {
     try {
          //req.body returns a { title, content}
-        const dbBlogData = await Blog.update(req.body, {
+        const dbBlogData = await Blog.update(
+            {
+                title: req.body.title,
+                content: req.body.content,
+                date: new Date(),
+                edited: req.body.edited
+            }, {
             where: {
                 id: req.params.id,    
             },

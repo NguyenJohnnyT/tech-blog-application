@@ -22,6 +22,10 @@ Blog.init(
         date: {
             type: DataTypes.DATE
         },
+        edited: {
+            type: DataTypes.BOOLEAN,
+            defaultValue: false
+        },
         user_id: {
             type: DataTypes.INTEGER,
             references: {
@@ -29,7 +33,6 @@ Blog.init(
                 key: 'id',
             },
         },
-
     },
     {
         sequelize,

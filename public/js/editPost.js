@@ -3,22 +3,31 @@
 
 const updatePostHandler = async (event) => {
     event.preventDefault();
-    console.log(event);
+    // console.log(event);
 
-    // const id = window.location.toString().split('/')[
-    //     window.location.toString().split('/').length - 1
-    //   ];
+    const title = document.querySelector('#edit-post-title').value.trim();
+    const content = document.querySelector('#edit-post-content').value.trim();
 
-    // const response = await fetch (`/api/blog/edit/${id}`, {
-    //     method: "DELETE",
-    // });
+    const id = window.location.toString().split('/')[
+        window.location.toString().split('/').length - 1
+    ];
+
+    const response = await fetch (`/blog/edit/${id}`, {
+        method: "PUT",
+        body: JSON.stringify({
+            title: title,
+            content: content,
+            edited: true,
+        }),
+        headers: {'Content-type': 'application/json'}
+    });
     
-    // if (response.ok) {
-    //     document.location.replace('/');
-    //     alert('Blogpost deleted.');
-    // } else {
-    //     alert('Failed to delete blogpost');
-    // };
+    if (response.ok) {
+        document.location.replace('/');
+        alert('Blogpost edited.');
+    } else {
+        alert('Failed to delete blogpost');
+    };
 };
 
 document

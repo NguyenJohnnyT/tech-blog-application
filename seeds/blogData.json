@@ -3,31 +3,36 @@
         "title": "What a wonderful world!",
         "content": "I just recently learned that I got a perfect grade on my previous homework!  Coding is fun and easy!",
         "user_id": 1,
-        "date": "2021-06-30 12:00:01"
+        "date": "2021-06-30 12:00:01",
+        "edited": false
     },
     {
         "title": "I'm not sure if anyone will believe me",
         "content": "I managed to break the world record in eating 500 hot dogs in one sitting.  Not only were they full sized Nathan's hot dogs, they were also stuffed with habaneros! Will continue this convo later, duty calls!",
         "user_id": 2,
-        "date": "2021-07-04 12:00:00"
+        "date": "2021-07-04 12:00:00",
+        "edited": false
     },
     {
         "title": "A recipe for making indomie noodles",
         "content": "Step one: Boil water.  Step two: Take all the nooles out of the package along with the seasonings. Step three: Heat up a frying pan.  Step four: Once the water boils, add noodles and boil for 2 minutes. Step five: As the noodle boils, fry an egg until the whites are crispy. Step six: Drain noodles and add to a bowl.  Step seven: Mix the seasonings together with the nodles. Step eight: Top with fried egg and green onions and some black pepper. Step nine: Enjoy!",
         "user_id": 3,
-        "date": "2021-07-05 13:00:00"
+        "date": "2021-07-05 13:00:00",
+        "edited": false
     },
     {
         "title": "A crazy conspiracy story of the future",
         "content": "The year is 2043 Covid variant phi beta epsilon is ravaging 0.0026% of the population, you go outside for your government mandated 30 minute exercise, it's 1 a.m. not the best time, but they alternate your schedule so eventually everyone does get some sunlight. You quadruple mask and put on your plastic smock. You gaze longingly at the sky. A man riding his bicycle points his flashlight at you 'Why aren't you doing your stretches and cardio?' He asks, you recognize him as your neighbor (maybe, it's been some time since you last saw anyone). 'It's because of people like you not obeying that the lockdowns have been extended another 4 years.' He mumbles through his layers of masks. He reports you to AlphabetGoogle and your social credit score drops 5 points, good luck buying bread this week.",
         "user_id": 1,
-        "date": "2021-07-20 15:00:00"
+        "date": "2021-07-20 15:00:00",
+        "edited": false
         
     },
     {
         "title": "RATS.",
         "content": "ᘛ⁐̤ᕐᐷᘛ⁐̤ᕐᐷᘛ⁐̤ᕐᐷᘛ⁐̤ᕐᐷᘛ⁐̤ᕐᐷᘛ⁐̤ᕐᐷᘛ⁐̤ᕐᐷᘛ⁐̤ᕐᐷᘛ⁐̤ᕐᐷᘛ⁐̤ᕐᐷᘛ⁐̤ᕐᐷᘛ⁐̤ᕐᐷᘛ⁐̤ᕐᐷᘛ⁐̤ᕐᐷᘛ⁐̤ᕐᐷᘛ⁐̤ᕐᐷᘛ⁐̤ᕐᐷᘛ⁐̤ᕐᐷᘛ⁐̤ᕐᐷᘛ⁐̤ᕐᐷᘛ⁐ᕐᐷᘛ⁐ᕐᐷᘛ⁐ᕐᐷᘛ⁐ᕐᐷᘛ⁐ᕐᐷᘛ⁐ᕐᐷᘛ⁐ᕐᐷᘛ⁐ᕐᐷᘛ⁐ᕐᐷᘛ⁐ᕐᐷᘛ⁐ᕐᐷᘛ⁐ᕐᐷᘛ⁐ᕐᐷᘛ⁐ᕐᐷᘛ⁐ᕐᐷᘛ⁐ᕐᐷᘛ⁐ᕐᐷᘛ⁐ᕐᐷᘛ⁐ᕐᐷᘛ⁐ᕐᐷᘛ⁐ᕐᐷᘛ⁐ᕐᐷᘛ⁐ᕐᐷᘛ⁐ᕐᐷᘛ⁐ᕐᐷᘛ⁐ᕐᐷᘛ⁐ᕐᐷ RATS RATS WE ARE THE RATS WE PRAY AT NIGHT WE STALK AT NIGHT WE ARE THE RATS",
         "user_id": "2",
-        "date": "2021-07-30 03:00:00"
+        "date": "2021-07-30 03:00:00",
+        "edited": true
     }
 ]
