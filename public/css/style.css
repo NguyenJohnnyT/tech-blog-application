@@ -32,15 +32,15 @@
     /* bottom: 15px; */
 }
 
-.addPostBtn {
+#addPostBtn {
     background-color: var(--lighttext);
 }
 
-.editPostBtn {
+#editPostBtn {
     background-color: orange;
 }
 
-.delPostBtn {
+#delPostBtn {
     background-color: red;
     color:cornsilk
 }

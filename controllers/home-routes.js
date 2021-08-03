@@ -18,7 +18,8 @@ router.get('/', async (req, res) => {
                         'username',
                     ]
                 }
-            ]
+            ],
+            order: [["date", 'DESC']]
         });
         const blogs = blogData.map((blog) => blog.get({ plain: true }));
 
@@ -73,6 +74,31 @@ router.get('/dashboard/add', withAuth, async (req, res) => {
         res.status(200).render('selfCreate', {loggedIn: req.session.loggedIn});
     }catch (err) {
         res.status(500).json(err)
+    }
+})
+
+router.post('/dashboard/add', withAuth, async (req, res) => {
+    try{
+        const dbUser = await User.findOne({
+            where: {
+                username: req.session.username
+            },
+        });
+
+        const user = dbUser.get({ plain: true });
+        // console.log(user)
+
+        const dbNewPost = await Blog.create({
+            title: req.body.title,
+            content: req.body.content,
+            date: new Date(),
+            user_id: user.id
+        })
+
+        const post = dbNewPost.get({ plain: true });
+        res.status(200).redirect('/');
+    } catch (err) {
+        res.status(550).json(err);
     }
 })
 

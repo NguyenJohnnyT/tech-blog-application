@@ -1,5 +1,6 @@
-const deletePostHandler = (event) => {
+const deletePostHandler = async (event) => {
     event.preventDefault();
+    console.log(event);
 
     const id = window.location.toString().split('/')[
         window.location.toString().split('/').length - 1
@@ -16,7 +17,7 @@ const deletePostHandler = (event) => {
         alert('Failed to delete blogpost');
     };
 };
-// TODO: Add the delete button on post
+
 document
-  .querySelector('.delete-blogpost')
+  .querySelector('#delPostBtn')
   .addEventListener('submit', deletePostHandler);

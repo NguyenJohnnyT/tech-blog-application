@@ -2,7 +2,7 @@
 
 const addPost = async (event) => {
     event.preventDefault();
-
+    
     const title = document.querySelector('#new-post-title').value.trim();
     const content = document.querySelector('#new-post-content').value.trim();
 
@@ -21,4 +21,4 @@ const addPost = async (event) => {
     }
 }
 
-document.querySelector('.addPostBtn').addEventListener('submit', addPost)
+document.querySelector('#addPostBtn').addEventListener('click', addPost)
