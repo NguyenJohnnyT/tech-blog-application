@@ -1,4 +1,8 @@
 {{!-- Displays all the blogposts on the homeapge --}}
+{{#if loggedIn}}
 {{#each blogs as |blog|}}
 {{> blog-details}}
 {{/each}}
+{{else}}
+<h2>Please sign in to see blog posts!</h2>
+{{/if}}

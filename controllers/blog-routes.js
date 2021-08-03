@@ -1,8 +1,17 @@
 const router = require('express').Router();
 const { Blog, User, Comment } = require('../models');
 const withAuth = require('../utils/auth');
+// TODO: Add withAuth
 
-router.get('/:id', async (req, res) => {
+router.get('/create', async (req, res) => {
+    try {
+        res.status(200).render('selfCreate');
+    }catch (err) {
+        res.status(500).json(err)
+    }
+})
+
+router.get('/:id', withAuth, async (req, res) => {
     try {
         const dbBlogData = await Blog.findByPk(req.params.id, {
             include: [
@@ -31,7 +40,7 @@ router.get('/:id', async (req, res) => {
         //TODO: Add a boolean property post.sameUser if the session.username === post.user.username
         // console.log(dbBlogData);
         const post = dbBlogData.get({ plain: true});
-        console.log(post);
+        // console.log(post);
         res.render('post', { 
             post,
             loggedIn: req.session.loggedIn })
@@ -41,6 +50,8 @@ router.get('/:id', async (req, res) => {
         res.status(500).json(err);
     }
 })
+
+
 
 //! Show editing screen
 router.get('edit/:id', async (req, res) => {

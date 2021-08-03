@@ -5,7 +5,8 @@ properties : username, blogs
 blogs: an array of objects containing blogposts
 blogpost objects: id, title, date
 --}}
-<h3>Blog posts by you ({{post.[0].username}}</h3>
+<h3>Blog posts by you ({{post.[0].username}})</h3>
 {{#each post.[0].blogs as |blog|}}
 {{>dash-details}}
 {{/each}}
+<a href="/dashboard/add" class="w3-button w3-large w3-circle w3-xlarge w3-ripple addCommentBtn">New Post</a>

@@ -1,10 +1,15 @@
 const router = require('express').Router();
 const { Blog, User, Comment } = require('../models');
 const withAuth = require('../utils/auth');
+//TODO: Add withAuth
 
 // GET all blogs for homepage
 router.get('/', async (req, res) => {
     try {
+        if (!req.session.loggedIn) {
+            res.render('home', {loggedIn: false})
+            return;
+        };
         const blogData = await Blog.findAll({
             include: [
                 {
@@ -14,10 +19,10 @@ router.get('/', async (req, res) => {
                     ]
                 }
             ]
-        })
+        });
         const blogs = blogData.map((blog) => blog.get({ plain: true }));
 
-        console.log('blogs', blogs);
+        // console.log('blogs', blogs);
 
         res.render('home', {
             blogs,
@@ -29,78 +34,12 @@ router.get('/', async (req, res) => {
     }
 });
 
-
-//! MOVED TO blog-routes.js !!!
-// GET one blog
-// router.get('/blog/:id', async (req, res) => {
-//     try {
-//         const dbBlogData = await Blog.findByPk(req.params.id, {
-//             include: [
-//                 {
-//                     model: User,
-//                     attributes: [
-//                         'username'
-//                     ],
-//                 },
-//                 {
-//                     model: Comment,
-//                     attributes: [
-//                         'content',
-//                         'date',
-//                     ],
-//                     include: {
-//                         model: User,
-//                         attributes: [
-//                             'username'
-//                         ]
-//                     }
-//                 }
-//             ]
-//         })
-
-//         //TODO: Add a boolean property post.sameUser if the session.username === post.user.username
-//         // console.log(dbBlogData);
-//         const post = dbBlogData.get({ plain: true});
-//         console.log(post);
-//         res.render('post', { 
-//             post,
-//             loggedIn: req.session.loggedIn })
-//         // res.json(post);
-//     } catch (err) {
-//         console.log(err);
-//         res.status(500).json(err);
-//     }
-// })
-
-// router.delete('/blog/edit/:id', async (req, res) => {
-//     try {
-//         const dbBlogData = await Blog.destroy({
-//             where: {
-//                 id: req.params.id
-//             },
-//         });
-//         res.status(200).json(dbBlogData);
-//     } catch (err) {
-//         res.status(500).json(err);
-//     }
-// })
-
-// router.get('blog/edit/:id', async (req, res) => {
-//     try{
-        
-
-//         //res.render('self)
-//     } catch (err) {
-//         res.status(500).json(err);
-//     }
-// })
-
-router.get('/dashboard', async(req, res) => { //req.session.username
+router.get('/dashboard', withAuth, async(req, res) => { //req.session.username
     try {
-        if (!req.session.loggedIn) {
-            res.redirect('/login');
-            return
-        }
+        // if (!req.session.loggedIn) {
+        //     res.redirect('/login');
+        //     return
+        // }
         const dbUserData = await User.findAll({
             where: {
                 username: req.session.username,
@@ -125,6 +64,15 @@ router.get('/dashboard', async(req, res) => { //req.session.username
     } catch (err) {
         console.log(err);
         res.status(500).json(err);
+    }
+})
+
+//TODO: Add dashboard/add POST route for new blogs
+router.get('/dashboard/add', withAuth, async (req, res) => {
+    try {
+        res.status(200).render('selfCreate', {loggedIn: req.session.loggedIn});
+    }catch (err) {
+        res.status(500).json(err)
     }
 })
 
