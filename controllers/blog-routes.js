@@ -81,15 +81,21 @@ router.put('/edit/:id', async (req, res) => {
     }
 })
 
-//TODO: Test this route
-router.delete('edit/:id', async (req, res) => {
+router.delete('/edit/:id', async (req, res) => {
     try {
         const dbBlogData = await Blog.destroy({
             where: {
                 id: req.params.id
             },
         });
-        res.status(200).json(dbBlogData);
+
+        if (!dbBlogData) {
+            res.status(404).json({ message: 'No category found with that id!' });
+            return
+        };
+
+        // res.status(200).json({dbBlogData, message: "blogpost deleted!"});
+        res.redirect('../');
     } catch (err) {
         res.status(500).json(err);
     }
