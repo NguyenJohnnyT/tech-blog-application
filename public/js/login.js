@@ -12,7 +12,8 @@ const loginFormHandler = async (event) => {
         });
 
         if (response.ok) {
-            document.location.replace('/');
+            document.location.replace('/dashboard');
+            alert(`Thank you for logging in, ${username}!`)
         } else {
             alert('Failed to log in');
         };
@@ -39,7 +40,8 @@ const signupFormHandler = async (event) => {
         });
         
         if (response.ok) {
-            document.location.replace('/');
+            document.location.replace('/dashboard');
+            alert(`Thanks for making an account, ${username}!`)
         } else {
             alert('Problem with making a new account')
         }

@@ -4,7 +4,7 @@ const withAuth = require('../utils/auth');
 // TODO: Add withAuth
 
 router.get('/:id', 
-// withAuth,
+withAuth,
  async (req, res) => {
     try {
         const dbBlogData = await Blog.findByPk(req.params.id, {
@@ -29,11 +29,8 @@ router.get('/:id',
                     }
                 }
             ]
-        })
+        });
 
-        //TODO: Add a boolean property post.sameUser if the session.username === post.user.username
-        // console.log(dbBlogData);
-        
         const post = dbBlogData.get({ plain: true});
         // console.log(post);
         res.render('post', { 
@@ -52,7 +49,7 @@ router.post('/comment/add/:id', async (req, res) => {
     try {
         const dbUser = await User.findOne({
             where: {
-                username: req.session.id
+                username: req.session.username
             },
         });
 
@@ -75,7 +72,7 @@ router.post('/comment/add/:id', async (req, res) => {
 });
 
 //! Show editing screen
-router.get('/edit/:id', async (req, res) => {
+router.get('/edit/:id', withAuth, async (req, res) => {
     try{
         const dbBlogData = await Blog.findByPk(req.params.id)
         post = dbBlogData.get({ plain: true })
