@@ -2,3 +2,24 @@
 {{!-- TODO: Add buttons to update/delete --}}
 {{!-- Build the html. --}}
 {{!-- TODO: Add script to delete --}}
+
+<h1>HEALLOAU</h1>
+<div class="row">
+    <div class"create-page-title"><h2><strong>Create a new blog post</strong></h2></div>
+    <form class"form create-post">
+        <div class='form-group'>
+            <label for="edit-post-title">Title:</label>
+            <input class="form-input" type="text" id="edit-post-title">
+        </div>
+        <div class='form-group'>
+            <label for="edit-post-content">Content:</label>
+            <input class="form-input" type="text" id="edit-post-content">
+        </div>
+    </form>
+</div>
+<div class="row justify-center">
+    <a href="/" class="w3-button w3-large w3-circle w3-xlarge w3-ripple editPostBtn">Edit post!</a>
+    <a href="/" class="w3-button w3-large w3-circle w3-xlarge w3-ripple delPostBtn">Delete post!</a>
+</div>
+<script src='/js/editPost.js'></script>
+<script src='/js/deletePost.js'></script>

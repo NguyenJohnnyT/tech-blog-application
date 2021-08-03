@@ -15,7 +15,6 @@ const sequelize = require('../config/connection');
 const seedDatabase = async () => {
     await sequelize.sync({ force: true });
     
-    // TODO: Add bulk creates for every 
     await User.bulkCreate(userData, {
       individualHooks: true,
       returning: true,
