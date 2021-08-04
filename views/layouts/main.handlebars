@@ -1,26 +1,27 @@
 <head>
   <meta charset="UTF-8">
   <title>Tech Blog</title>
+  <link rel="icon" type="image/png" href="https://imgur.com/a/2DZkWCF"/>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat|Source+Serif+Pro:ital@1&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/jass.css">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link rel="stylesheet" href="/css/style.css">
-  {{!-- <link rel="icon" type="image/png" href="https://imgur.com/a/2DZkWCF"/> --}}
 </head>
 
 <body>
   <div class="flex-column  justify-space-around main">
     <header class="display-flex justify-center p-2 text-white header">
-      <h1>
-        &#127881 Tech Blog! &#127881
+      <h1 class='title'>
+        Tech Blog
       </h1>
     </header>
       <nav class="flex-row justify-space-around nav p-4"> 
-          <a href="/"><h2>Home</h2></a>
-          <a href="/dashboard"><h2>Dashboard</h2></a>
+          <a href="/"><h2 class='title'>Home</h2></a>
+          <a href="/dashboard"><h2 class='title'>Dashboard</h2></a>
           {{#if loggedIn}}
-          <a href="#" id="logout"><h2>Logout (logged in as {{sessionUser}})</h2></a>
+          <a href="#" id="logout"><h2 class='title'>Logout (logged in as {{sessionUser}})</h2></a>
           {{else}}
-          <a href="/login" class=""><h2>Login</h2></a>
+          <a href="/login"><h2 class='title'>Login</h2></a>
           {{/if}}          
       </nav>
       <main class="container container-fluid mt-5">

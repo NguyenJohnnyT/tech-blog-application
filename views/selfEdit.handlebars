@@ -3,21 +3,21 @@
 {{!-- Build the html. --}}
 {{!-- TODO: Add script to delete --}}
 <div class="row">
-    <div class"create-page-title"><h2><strong>Create a new blog post</strong></h2></div>
+    <div class"create-page-title"><h2 class="title"><strong>Edit an existing blog post</strong></h2></div>
     <form class"form create-post">
         <div class='form-group'>
-            <label for="edit-post-title">Title:</label>
+            <label for="edit-post-title" class="title" style="font-size: 30px;">Title:</label>
             <textarea class="form-input" type="text" id="edit-post-title">{{post.title}}</textarea>
         </div>
         <div class='form-group'>
-            <label for="edit-post-content">Content:</label>
+            <label for="edit-post-content" class="title" style="font-size: 30px;">Content:</label>
             <textarea class="form-input" type="text" id="edit-post-content">{{post.content}}</textarea>
         </div>
     </form>
 </div>
 <div class="row justify-center">
-    <button type="submit" class="w3-button w3-large w3-circle w3-xlarge w3-ripple" id="editPostBtn">Edit post!</button>
-    <button type="submit" class="w3-button w3-large w3-circle w3-xlarge w3-ripple" id="delPostBtn">Delete Post!</button>
+    <button type="submit" class="w3-button w3-large w3-circle w3-xlarge w3-ripple title" id="editPostBtn">Edit post!</button>
+    <button type="submit" class="w3-button w3-large w3-circle w3-xlarge w3-ripple title" id="delPostBtn">Delete Post!</button>
 </div>
 <script src='/js/editPost.js'></script>
 <script src='/js/deletePost.js'></script>
