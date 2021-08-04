@@ -19,26 +19,26 @@ Sign-up and create an account to participate in creating and editing new blog po
 Screenshots:
 
 The home page (if logged in):
-<img src='./readme_assets/ss_home.png'>
+<img src='./readme_assets/SS_HOME.png'>
 
 Your dashboard:
-<img src='./readme_assets/ss_dash.png'>
+<img src='./readme_assets/SS_DASH.png'>
 
 Checking out a post:
-<img src='./readme_assets/ss_post.png'>
+<img src='./readme_assets/SS_POST.png'>
 
 Editing your blogpost:
-<img src='./readme_assets/ss_edit.png'>
+<img src='./readme_assets/SS_EDIT.png'>
 
 Commenting on a blogpost:
 
-<img src='./readme_assets/ss_comment.png'>
+<img src='./readme_assets/SS_COMMENT.png'>
 
 Creating a new blogpost:
-<img src='./readme_assets/ss_create.png'>
+<img src='./readme_assets/SS_CREATE.png'>
 
 Logging in:
-<img src='./readme_assets/ss_login.png'>
+<img src='./readme_assets/SS_LOGIN.png'>
 
 
 Features to be added in the future: Editing and deleting comments, user avatars
