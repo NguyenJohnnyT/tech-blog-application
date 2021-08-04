@@ -1,7 +1,7 @@
 :root {
-    --primary: #98eccc;
-    --header: #3c376b;
-    --subheader: #d0abe1;
+    --primary: white;
+    --header: #FF0000;
+    --subheader: #282828;
     --text: #5c5c5c;
     --card: #fdaca7;
     --lighttext: cornsilk;
@@ -21,28 +21,33 @@ main {
 }
 
 .blog-card {
-    background-color: var(--card);
+    background-color: var(--subheader);
     border-radius: 5px;
-    word-wrap: break-word
+    word-wrap: break-word;
+    color: var(--lighttext)
 }
 
 #addCommentBtn {
     position:absolute;
     right: 10%;
-    background-color: var(--lighttext);
+    background-color: var(--header);
+    color: var(--lighttext)
     /* bottom: 15px; */
 }
 
 #addPostBtn {
-    background-color: var(--lighttext);
+    background-color: var(--header);
+    color: var(--lighttext);
 }
 
 #editPostBtn {
     background-color: orange;
+    border: 1px, solid, black;
 }
 
 #delPostBtn {
     background-color: red;
+    border: 1px, solid, black;
     color:cornsilk
 }
 
@@ -55,7 +60,7 @@ main {
 }
 
 .comment-card {
-    background-color: var(--text);
+    background-color: var(--subheader);
     color: var(--lighttext);
     border-radius: 5px;
     margin-left: 15px;
@@ -68,12 +73,12 @@ main {
 }
 
 a {
-    color: var(--text);
+    color: var(--lighttext);
     
 }
 
 a:hover {
-    color: var(--text);
+    color: var(--lighttext);
     text-shadow: 1px 1px;
     text-decoration: none;
 }
