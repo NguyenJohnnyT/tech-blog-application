@@ -79,7 +79,7 @@ At the home page, all available blog posts will be displayed with the user to fr
 
 If the user is idle for more than ten minutes, they will be automatically logged out.
 
-Deployed application: [click here.](https://dry-spire-24651.herokuapp.com/)
+Deployed application: [click here.](https://jtn-tech-blog.herokuapp.com/)
 
 Github repository: [click here.](https://github.com/NguyenJohnnyT/tech-blog-application)
 
